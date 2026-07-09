@@ -55,6 +55,16 @@ h2{font-size:14px; font-weight:600; margin:26px 0 4px;}
 .gauge-threshold{ position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--accent); }
 .gauge-threshold-label{ position:absolute; top:14px; font-size:10px; color:var(--accent); font-weight:600; transform:translateX(-50%); }
 
+.score-guide{
+  background:var(--surface-2); border:1px solid var(--border); border-radius:10px;
+  padding:10px 12px; margin-bottom:12px; font-size:12px; color:var(--ink-2);
+}
+.score-guide b{color:var(--ink); font-size:12px;}
+.score-guide table{width:100%; border-collapse:collapse; margin-top:8px;}
+.score-guide td{padding:3px 6px 3px 0; vertical-align:top; border-top:1px solid var(--border);}
+.score-guide tr:first-child td{border-top:none;}
+.score-guide td:first-child{white-space:nowrap; font-weight:600; color:var(--ink); width:70px;}
+
 .cards{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px;}
 .card{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:10px 12px; }
 .card-head{display:flex; justify-content:space-between; align-items:baseline;}
@@ -105,6 +115,15 @@ svg{overflow:visible;}
 
 <h2>자산별 모멘텀 스코어 (최근 180거래일 추이)</h2>
 <div class="section-sub" id="periodLine1">기간 로딩중 · 0선 위(초록) = 양수, 0선 아래(빨강) = 음수 · 오른쪽 끝 = 오늘 값</div>
+<div class="score-guide">
+  <b>스코어 크기 대략적 의미</b> (숫자가 클수록 더 강한 추세, 부호만 방어전환 판정에 사용됨)
+  <table>
+    <tr><td>2 이상</td><td>강한 상승 모멘텀 (예: 2026년 5~6월 랠리 구간)</td></tr>
+    <tr><td>0 ~ 2</td><td>완만한 상승 (오르는 중이지만 힘이 둔화)</td></tr>
+    <tr><td>0 근처</td><td>거의 횡보</td></tr>
+    <tr><td>0 미만</td><td>하락 추세 - 이 자산은 방어전환 카운트에 포함됨</td></tr>
+  </table>
+</div>
 <div class="cards" id="cardsWrap"></div>
 
 <h2>QQQ 가격 × 방어모드 구간</h2>
